@@ -1,3 +1,4 @@
+import os
 from character import Hero, Enemy
 import weapon
 
@@ -7,10 +8,12 @@ enemy = Enemy(name="Enemy", health=100, weapon=weapon.spear)
 hero.equip(weapon.sword)
 
 while True:
+  os.system("cls")
+  
   hero.attack(enemy)
   enemy.attack(hero)
 
-  print(f"{hero.name}'s HP: {hero.health}")
-  print(f"{enemy.name}'s HP: {enemy.health}")
+  hero.health_bar.draw()
+  enemy.health_bar.draw()
   
   input()
